@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Image from "next/image"
 import styles from "../styles/Contact.module.scss"
 
 const contact = () => {
+
     return (
         <section className={styles.contactContainer}>
             <h2>Take a coffee & chat with me</h2>
@@ -16,7 +17,7 @@ const contact = () => {
                     <a href="tel:+90 (553) 276-80-90" className={styles.mail}>+90 (553) 276-80-90</a>
                 </div>
             </div>
-            <form className={styles.contactForm}>
+            <form className={styles.contactForm} onSubmit={e => e.preventDefault()}>
                 <div className={styles.formWrapper}>
                     <input type="text" placeholder='Your Name' />
                 </div>
@@ -24,11 +25,15 @@ const contact = () => {
                     <input type="text" placeholder='Your Name' />
                 </div>
                 <div className={styles.formWrapper}>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea
+                        className="p-text"
+                        placeholder="Your Message"
+                        name="message"
+                    />
                 </div>
-                <button>send message</button>
+                <button type='submit'>Send Message</button>
             </form>
-        </section>
+        </section >
     )
 }
 
